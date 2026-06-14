@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Tag</title>
+    <link rel="stylesheet" th:href="@{/css/addTag.css}">
+    <link rel="stylesheet" th:href="@{/css/navBarStyle.css}">
+</head>
+<body>
+<div>
+    <div>
+        <div th:replace="fragments/navBar :: navBar"></div>
+    </div>
+    <div>
+        <form th:action="@{/tag/add}" method="post">
+            <div>
+                <h1>Create Your Tag Here !!</h1>
+            </div>
+
+            <div>
+                Enter Tag:
+                <input type="text" name="name" required>
+            </div>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

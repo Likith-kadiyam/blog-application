@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/loginStyle.css}">
+</head>
+<body>
+    <h>Login</h>
+    <form th:action="@{/login}"
+          method="post">
+        <input type="text" name="username" placeholder="Email">
+
+        <input type="password" name="password" placeholder="Password">
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <a th:href="@{/register}">
+        Create Account
+    </a>
+</body>
+
+</html>

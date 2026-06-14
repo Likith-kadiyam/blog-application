@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+}
+
+.tag-outer-div{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.tag-inner-div{
+    width: 50%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Page Heading */
+.tag-inner-div h1{
+    text-align: center;
+    color: #1e293b;
+}
+
+/* Add Tag Button Container */
+.add-button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Add Tag Button */
+.add-button a{
+    text-decoration: none;
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.add-button a:hover{
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Cards */
+.card{
+    background-color: white;
+    padding: 25px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover{
+    border-color: #2563eb;
+    box-shadow:
+            0 0 0 4px rgba(37, 99, 235, 0.08),
+            0 10px 25px rgba(0, 0, 0, 0.08);
+
+    transform: translateY(-3px);
+}
+
+.card h2{
+    color: #2563eb;
+    font-size: 24px;
+}
+
+hr{
+    margin-top: 15px;
+    border: none;
+    border-top: 1px solid #e2e8f0;
+}

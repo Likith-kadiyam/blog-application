@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tags</title>
+    <link rel="stylesheet" th:href="@{/css/tagStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/navBarStyle.css}">
+
+</head>
+</head>
+
+<body>
+<div class="tag-outer-div">
+    <div th:replace="fragments/navBar :: navBar"></div>
+
+    <div class="tag-inner-div">
+        <div class="add-button">
+            <a href="/tag/add">Add a new Tag !! </a>
+        </div>
+
+
+        <h1>Here are the all tags !!</h1>
+        <div th:each="tag : ${tagsList}" class="card">
+            <h2 th:text="${tag.tagName}"></h2>
+            <hr>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

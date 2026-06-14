@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+}
+
+.home-outer-div{
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+}
+
+.home-inner-div{
+
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+}
+.card{
+    /*border: 1.2px solid #2563eb;*/
+    /*border-radius: 8px;*/
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+.card:hover{
+    border-color: #2563eb;
+    box-shadow:
+            0 0 0 4px rgba(37, 99, 235, 0.08),
+            0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+}
+.home-inner-div > div{
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.home-inner-div h2{
+    color: #2563eb;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.home-inner-div div p{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+hr{
+    margin-top: 20px;
+    border: none;
+    border-top: 1px solid #e2e8f0;
+}
+.home-inner-div > div:last-child{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background: transparent;
+    box-shadow: none;
+    padding: 10px;
+}
+
+.home-inner-div div a{
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 8px;
+    color: #2563eb;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+.home-inner-div div a:hover{
+    background-color: #2563eb;
+    color: white;
+}
+
+.home-inner-div > div:last-child a{
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 8px;
+    color: #2563eb;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.home-inner-div > div:last-child a:hover{
+    background-color: #2563eb;
+    color: white;
+}

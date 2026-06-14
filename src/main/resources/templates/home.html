@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Application</title>
+    <link rel="stylesheet" th:href="@{/css/homeStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/navBarStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/toolBarStyle.css}">
+</head>
+
+<body>
+<div class="home-outer-div">
+    <div th:replace="fragments/navBar :: navBar"></div>
+
+    <div th:replace="fragments/toolbar :: toolBar"></div>
+
+    <div class="home-inner-div">
+        <div th:if="${error}">
+            <p th:text="${error}" style="color: red;"></p>
+        </div>
+        <h1>Blogs !!</h1>
+
+        <div th:each="blog : ${blogPage.content}" class="card">
+            <h2 th:text="${blog.title}"></h2>
+            <hr>
+
+            <p>
+                <strong>Author:</strong>
+                <span th:text="${blog.author}"></span>
+            </p>
+            <p>
+                <strong>Excerpt:</strong>
+                <span th:text="${blog.excerpt}"></span>
+            </p>
+
+            <p th:text="${#strings.length(blog.content) > 150 ?
+             #strings.substring(blog.content, 0, 150) + '...' :
+             blog.content}">
+            </p>
+
+            <a th:href="@{/home/blog/{id}(id=${blog.id})}">Read More</a>
+
+            <hr>
+        </div>
+
+        <div>
+        <span th:each="i : ${#numbers.sequence(0, blogPage.totalPages - 1)}">
+            <a th:href="@{/home(
+                    page=${i},
+                    search=${param.search},
+                    author=${param.author},
+                    sort=${param.sort}
+                )}"
+                    th:text="${i+1}">
+            </a>
+        </span>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

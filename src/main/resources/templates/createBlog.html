@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Blog</title>
+
+    <link rel="stylesheet" th:href="@{/css/createBlog.css}">
+    <link rel="stylesheet" th:href="@{/css/navBarStyle.css}">
+</head>
+<body>
+
+<div class="home-outer-div">
+
+    <div class="navbar-container">
+        <div th:replace="fragments/navBar :: navBar"></div>
+    </div>
+
+    <div class="form-container">
+        <form th:action="@{/home/createBlog}" method="post">
+
+            <h1>Create Your Post Here !!</h1>
+
+            <div>
+                <label>Enter Title Of The Blog:</label>
+                <input type="text" name="title" required>
+            </div>
+
+            <div>
+                <label>Enter Author Of The Blog:</label>
+                <input type="text" name="author" required>
+            </div>
+
+            <div>
+                <label>Enter Excerpt Of The Blog:</label>
+                <input type="text" name="excerpt" required>
+            </div>
+
+            <div>
+                <label>Select Tags:</label>
+                <div class="tag-checkbox-container">
+                    <label class="tag-item"
+                           th:each="tag : ${tagsList}">
+                        <input type="checkbox"
+                               name="tagIds"
+                               th:value="${tag.id}">
+                        <span th:text="${tag.tagName}"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label>Enter Content Of The Blog:</label>
+                <textarea name="content" required></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

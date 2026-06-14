@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Blog</title>
+
+    <link rel="stylesheet" th:href="@{/css/createBlog.css}">
+    <link rel="stylesheet" th:href="@{/css/navBarStyle.css}">
+</head>
+<body>
+
+<div class="home-outer-div">
+
+    <div class="navbar-container">
+        <div th:replace="fragments/navBar :: navBar"></div>
+    </div>
+
+    <div class="form-container" th:object="${post}">
+        <form th:action="@{/home/updateBlog/{id}(id=${post.id})}" method="post">
+
+            <h1>Update Your Post Here !!</h1>
+
+            <div>
+                <label>Update Title Of The Blog:</label>
+                <input type="text" name="title" th:value="${post.title}">
+            </div>
+
+            <div>
+                <label>Update Author Of The Blog:</label>
+                <input type="text" name="author" th:value="${post.author}">
+            </div>
+
+            <div>
+                <label>Update Excerpt Of The Blog:</label>
+                <input type="text" name="excerpt" th:value="${post.excerpt}">
+            </div>
+
+            <div>
+                <label>Update Content Of The Blog:</label>
+                <textarea name="content" th:text="${post.content}"></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

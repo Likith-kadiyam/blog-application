@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<nav th:fragment="toolBar" class="toolbar-nav">
+    <div class="toolbar-outer-div">
+
+        <form th:action="@{/home}" method="get">
+            <input type="text" name="search" placeholder="Search">
+            <input type="text" name="author" placeholder="Author">
+            <input type="date" name="date">
+            <select name="sort">
+                <option value="">Default</option>
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+            </select>
+            <button type="submit">Apply</button>
+        </form>
+
+
+    </div>
+</nav>
+</body>
+</html>

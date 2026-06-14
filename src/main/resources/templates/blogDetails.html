@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Details</title>
+    <link rel="stylesheet" th:href="@{/css/navBarStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/blogDetailsStyle.css}">
+</head>
+<body>
+    <div class="blogdetails-outer-div">
+        <div>
+            <div th:replace="fragments/navBar :: navBar"></div>
+        </div>
+        <div th:object="${post}" class="blog-details">
+            <div sec:authorize="hasAnyRole('AUTHOR','ADMIN')">
+                <h1 th:text="*{title}"></h1>
+                <a th:href="@{/home/updateBlog/{id}(id=${post.id})}"> Update </a>
+                <a th:href="@{/tag/addTagToBlog/{id}(id=${post.id})}"> Add Tag </a>
+                <form th:action="@{/home/deleteBlog/{id}(id=${post.id})}"
+                      method="post"
+                      style="display:inline;">
+
+                    <button type="submit"
+                            class="action-btn delete-btn"
+                            onclick="return confirm('Are you sure you want to delete this blog?')">
+                        Delete
+                    </button>
+                </form>
+            </div>
+
+            <div class="meta-item">
+                <strong>Author</strong>
+                <p th:text="*{author}"></p>
+            </div>
+
+            <div class="meta-item">
+                <strong>Excerpt</strong>
+                <p th:text="*{excerpt}"></p>
+            </div>
+
+            <div class="meta-item">
+                <strong>Created At</strong>
+                <p th:text="*{publishedAt}"></p>
+            </div>
+
+            <div class="meta-item">
+                <strong>Updated At:</strong>
+                <p th:text="*{updatedAt}"></p>
+            </div>
+
+            <div class="meta-item">
+                <strong>Content:</strong>
+                <p th:text="*{content}"></p>
+            </div>
+
+        </div>
+        <div class="blog-details">
+            <h1>Post Comment Here !!</h1>
+            <form th:action="@{/home/blog/{id}/comment(id=${post.id})}" method="post">
+                <label>Name</label>
+                <input name="name">
+
+                <label>Email</label>
+                <input name="email">
+
+                <label>Comment</label>
+                <textarea name="comment"></textarea>
+                <button type="submit">post comment</button>
+            </form>
+        </div>
+
+        <div class="comments-section">
+            <h2>Comments</h2>
+
+            <div th:each="c : ${commentList}" class="comment-card">
+                <div class="comment-header">
+                    <strong th:text="${c.name}"></strong>
+                    <span th:text="${c.email}"></span>
+                </div>
+                <p th:text="${c.comment}"></p>
+                <div class="comment-actions">
+                    <a th:href="@{/comments/edit/{id}(id=${c.id})}"
+                       class="edit-btn">
+                        Edit
+                    </a>
+                    <form th:action="@{/comments/delete/{id}(id=${c.id})}"
+                          method="post"
+                          style="display:inline;">
+
+                        <button type="submit"
+                                class="delete-btn"
+                                onclick="return confirm('Delete this comment?')">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
