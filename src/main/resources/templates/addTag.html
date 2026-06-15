@@ -9,22 +9,24 @@
 <body>
 <div>
     <div>
-        <div th:replace="fragments/navBar :: navBar"></div>
-    </div>
-    <div>
-        <form th:action="@{/tag/add}" method="post">
-            <div>
-                <h1>Create Your Tag Here !!</h1>
-            </div>
+        <div>
+            <div th:replace="fragments/navBar :: navBar"></div>
+        </div>
 
-            <div>
-                Enter Tag:
-                <input type="text" name="name" required>
-            </div>
+        <div class="add-tag-container">
+            <form th:action="@{/tag/add}" method="post">
+                <div>
+                    <h1>Create Your Tag Here !!</h1>
+                </div>
 
-            <button type="submit">Submit</button>
+                <div>
+                    Enter Tag:
+                    <input type="text" name="name" required>
+                </div>
 
-        </form>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
 </div>
